@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Daily Planning Workspace</title>
+  <meta
+    name="description"
+    content="TaskFlow is a modern task manager with priorities, filters, search, and local storage."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="workspace">
+    <section class="hero-panel">
+      <div class="hero-panel__top">
+        <div class="brand">
+          <div class="brand__mark">T</div>
+          <div>
+            <p class="brand__eyebrow">Daily planning workspace</p>
+            <h1>TaskFlow</h1>
+          </div>
+        </div>
+
+        <div class="hero-badge">Local productivity app</div>
+      </div>
+
+      <div class="hero-panel__body">
+        <div>
+          <p class="section-kicker">Overview</p>
+          <h2>Organize tasks with a cleaner visual workflow</h2>
+          <p class="hero-text">
+            A focused task manager built for daily planning, quick capture,
+            priority control, and better visibility across all your work.
+          </p>
+        </div>
+
+        <div class="hero-mini-stats">
+          <article class="mini-stat">
+            <span>Total</span>
+            <strong id="totalTasks">0</strong>
+          </article>
+          <article class="mini-stat">
+            <span>Active</span>
+            <strong id="activeTasks">0</strong>
+          </article>
+          <article class="mini-stat">
+            <span>Done</span>
+            <strong id="completedTasks">0</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolbar-panel">
+      <div class="toolbar-left">
+        <div class="search-field">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search tasks..."
+            aria-label="Search tasks"
+          />
+        </div>
+      </div>
+
+      <div class="toolbar-right">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <button id="clearCompletedBtn" class="secondary-btn">Clear completed</button>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="main-column">
+        <section class="composer-card">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">New task</p>
+              <h3>Add a task for today</h3>
+            </div>
+          </div>
+
+          <form id="taskForm" class="task-form">
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="What needs to be done?"
+              maxlength="120"
+              required
+            />
+
+            <select id="prioritySelect" aria-label="Select priority">
+              <option value="low">Low priority</option>
+              <option value="medium" selected>Medium priority</option>
+              <option value="high">High priority</option>
+            </select>
+
+            <button type="submit" class="primary-btn">Add task</button>
+          </form>
+        </section>
+
+        <section class="tasks-board">
+          <div class="card-head">
+            <div>
+              <p class="section-kicker">Task board</p>
+              <h3>Your current tasks</h3>
+            </div>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <div class="empty-state__icon">+</div>
+            <h4>No tasks yet</h4>
+            <p>Add your first task to start building your day.</p>
+          </div>
+
+          <div id="taskList" class="task-list"></div>
+        </section>
+      </div>
+
+      <aside class="side-column">
+        <section class="side-card">
+          <p class="section-kicker">Planning note</p>
+          <h3>Focus on one important thing first</h3>
+          <p>
+            A shorter task list with clear priorities often works better than a long,
+            overloaded plan.
+          </p>
+        </section>
+
+        <section class="side-card priorities-card">
+          <p class="section-kicker">Priority guide</p>
+
+          <div class="priority-row">
+            <span class="priority-dot priority-dot--high"></span>
+            <div>
+              <strong>High</strong>
+              <p>Urgent or important tasks that should be completed first.</p>
+            </div>
+          </div>
+
+          <div class="priority-row">
+            <span class="priority-dot priority-dot--medium"></span>
+            <div>
+              <strong>Medium</strong>
+              <p>Important tasks for today, but not the most urgent ones.</p>
+            </div>
+          </div>
+
+          <div class="priority-row">
+            <span class="priority-dot priority-dot--low"></span>
+            <div>
+              <strong>Low</strong>
+              <p>Smaller tasks that can be completed after key priorities.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="side-card compact-stats">
+          <p class="section-kicker">Quick numbers</p>
+          <div class="compact-stat-row">
+            <span>Completion rate</span>
+            <strong id="completionRate">0%</strong>
+          </div>
+          <div class="compact-stat-row">
+            <span>Current filter</span>
+            <strong id="currentFilterLabel">All</strong>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
