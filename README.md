@@ -1,6 +1,6 @@
 # TaskFlow — Daily Planning Workspace
 
-![TaskFlow Preview](./images/preview.jpg)
+![TaskFlow Preview](./images/preview.png)
 
 **TaskFlow** — это современный веб-менеджер задач для ежедневного планирования. Приложение позволяет создавать, фильтровать, искать и отслеживать задачи с приоритетами. Все данные сохраняются локально в браузере.
 
